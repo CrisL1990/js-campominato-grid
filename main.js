@@ -15,25 +15,45 @@ const createBox = () => {
 //Contiene il valore della selezione della difficoltà
 let selection = "Easy";
 
-//Funzione che ritorna livello difficoltà selezionato
-function levelSelection() {
+
+
+let optn = document.getElementById('startGame');
+let counter = 0
+optn.addEventListener('click', function(){
     selection = document.getElementById("Difficult").value;
+    let cells;
+    
+    cells = "Easy";
 
-    if(selection == "Easy"){
-        cells = 100;
+    if(counter % 2 == 0){
+
+        if(selection == "Easy"){
+            cells = 100;
+            playGroundMaker(cells);
+        }
+        else if(selection == "Medium"){
+            cells = 81;
+            playGroundMaker(cells);
+        }
+        else if(selection == "Hard"){
+            cells = 49;
+            playGroundMaker(cells);
+        }
     }
-    else if(selection == "Medium"){
-        cells = 81;
-    }
-    else if(selection == "Hard"){
-        cells = 49;
+    
+    else{
+
+        resetPlayground();
+
     }
 
-    return cells;
-}
+    counter += 1;
+    
 
-console.log(levelSelection());
-/*
+    
+    return cells
+})
+
 function playGroundMaker(cellsNumber){
     for(let i = 1; i <= cellsNumber; i++){
         const box = createBox();
@@ -48,8 +68,11 @@ function playGroundMaker(cellsNumber){
 
 }
 
+function resetPlayground(){
+    let playGroundReset = document.getElementById("playGroundContainer").innerHTML = '';
+    return playGroundReset
+}
 
-*/
 
 
 
