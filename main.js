@@ -62,6 +62,24 @@ function playGroundMaker(cellsNumber){
         box.addEventListener('click', function(){
             box.classList.add("clicked");
         });
+
+        if(cellsNumber == 100){
+            box.classList.add('game100');
+            box.classList.remove('game81');
+            box.classList.remove('game49');
+        }
+
+        else if(cellsNumber == 81){
+            box.classList.remove('game100');
+            box.classList.add('game81');
+            box.classList.remove('game49');
+        }
+
+        else if(cellsNumber == 49){
+            box.classList.remove('game100');
+            box.classList.remove('game81');
+            box.classList.add('game49');
+        }
     
         playGround.appendChild(box);
     }
